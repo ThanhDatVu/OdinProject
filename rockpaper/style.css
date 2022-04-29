@@ -1,0 +1,62 @@
+body {
+    background-image: url('./galaxy.jpg') !important;
+    color: white;
+    font-family: 'Cute Font', cursive;
+}
+
+#header {
+
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-weight: 900;
+    font-size: 60px;
+}
+
+#description {
+
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 50px;
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'header header header';
+    gap: 10px;
+
+    padding: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.grid-container>div {
+    background-color: black;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    border: red solid;
+}
+
+.score-container {
+    display: grid;
+    grid-template-areas:
+        'header  header';
+    gap: 10px;
+
+    padding: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.score-container>div {
+    background-color: black;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    
+    border: red solid;
+}

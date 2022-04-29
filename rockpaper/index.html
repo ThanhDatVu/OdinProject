@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS playground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    banga
+    <div id="container"></div>
+    <div class="flex-container">
+        <div class="flex-item">
+            <h1>Hello</h1>
+        </div>
+        <div class="flex-item">
+            <h1>World</h1>
+        </div>
+        <button id="btn">Click Me</button>
+        <input id="textBox" type="text"></input>
+        <div id="output"></div>
+
+        <script>
+            const container = document.querySelector('#container');
+            const btn = document.querySelector('#btn');
+            const div = document.createElement('div');
+            div.style.cssText = "border: black 1rem ; background-color: pink";
+
+            const h1 = document.createElement('h1');
+            h1.innerText = "I'm in a Div";
+            const p = document.createElement('p');
+            p.innerText = "ME TOO";
+            div.append(h1, p);
+            container.append(div);
+            btn.addEventListener('click', function (e) {
+                console.log(e.target);
+                e.target.style.background = 'blue';
+            });
+        </script>
+</body>
+
+</html>
