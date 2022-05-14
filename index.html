@@ -1,1 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notice me senpai</title>
+    <link rel="stylesheet" href="./rockpaper/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <h1 id="header"><a href="./rockpaper/RockPaperScissorUltra.html">Rock Paper Scissors</a></h1>
+    <h1 id="header"><a href="./sketch/Sketch.html">Etch-a-Sketch</a></h1>
+    
+    
+
+    <script>
+        let choices = document.querySelectorAll('.grid-item');
+        let userOption;
+        let computerOption;
+        let userScore = 0;
+        let computerScore = 0;
+        let computerDiv = document.querySelector('#computerScore');
+        let userDiv = document.querySelector('#userScore');
+        let des = document.querySelector('#description');
+        // function return random option 
+
+        const myArray = ["rock", "paper", "scissors"];
+
+        function randomOption() {
+            return myArray[~~(Math.random() * myArray.length)];
+        }
+        // function to compare user and computer option
+        function compare(userOption, computerOption) {
+            if (userOption === computerOption) {
+
+                des.innerText = "That's a tie, Human choose " + userOption + " and Computer choose " + computerOption;
+            } else if (userOption === 'rock') {
+                if (computerOption === 'paper') {
+                    return incComputerScore();
+                } else {
+                    return incUserScore();
+                }
+            } else if (userOption === 'paper') {
+                if (computerOption === 'scissors') {
+                    return incComputerScore();
+                } else {
+                    return incUserScore();
+                }
+            } else if (userOption === 'scissors') {
+                if (computerOption === 'rock') {
+                    return incComputerScore();
+                } else {
+                    return incUserScore();
+                }
+            }
+        }
+            //increase user score onscreen, and check if one side reach 5 pts
+            function incUserScore() {
+                userScore++;
+                userDiv.innerText = userScore;
+
+                des.innerText = "Human won, Human choose " + userOption + " and Computer choose " + computerOption;
+                displayResult();
+            }
+            //increase computer score onscreen, and check if one side reach 5 pts
+            function incComputerScore() {
+                computerScore++;
+                computerDiv.innerText = computerScore;
+                des.innerText = "Computer won, Human choose " + userOption + " and Computer choose " + computerOption;
+                displayResult()
+
+            }
+
+
+            // function to display result
+            function displayResult() {
+                if (computerScore == 5) {
+                    des.innerText = "Computer win 5 games first! Reset.....";
+                    computerScore = 0;
+                    userScore = 0;
+                    computerDiv.innerText = "0";
+                    userDiv.innerText = "0";
+                }
+                if (userScore == 5) {
+                    des.innerText = "Human win 5 games first! Reset.....";
+                    computerScore = 0;
+                    userScore = 0;
+                    computerDiv.innerText = "0";
+                    userDiv.innerText = "0";
+                }
+
+
+            }
+            //add event listen
+            choices.forEach(choice => {
+                choice.addEventListener('click', function (e) {
+                    userOption = e.target.getAttribute('value');
+                    computerOption = randomOption()
+                    compare(userOption, computerOption);
+
+                })
+            });
+
+
+
+            //create a loop to run the game
+            // for (let i = 0; i < 5; i++) {
+            //     userOption = prompt('Enter your choice: rock, paper or scissors');
+            //     computerOption = randomOption();
+            //     document.getElementById('output').innerHTML += displayResult(userOption, computerOption) + '<br>';
+            // }
+
+    </script>
+</body>
+
+</html>
